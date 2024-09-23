@@ -1,0 +1,107 @@
+{
+  "name": "EmployeeOnboard-DispatcherMailVersion",
+  "projectId": "f49a48cd-e57d-4d79-933c-26c8d4a286a6",
+  "description": "this is a dispatcher bot used to read mails via outlook with attachments, archive attachments, apply DU processing, dispatch Q items/ Storage bucket and send notification/confirmation mail\r\n\r\nHint: Persistance is enable because of the validation purpose of the Human in loop via Action center ",
+  "main": "Main.xaml",
+  "dependencies": {
+    "RPAHUB.BeautyMailRender.Activities": "[0.1.0.1005143228]",
+    "UiPath.DataService.Activities": "[24.7.1]",
+    "UiPath.DocumentUnderstanding.Activities": "[2.9.5]",
+    "UiPath.Excel.Activities": "[2.24.1]",
+    "UiPath.IntegrationService.Activities": "[1.7.0]",
+    "UiPath.IntelligentOCR.Activities": "[6.19.5]",
+    "UiPath.Mail.Activities": "[1.23.11]",
+    "UiPath.MicrosoftOffice365.Activities": "[2.6.25]",
+    "UiPath.Persistence.Activities": "[1.5.9]",
+    "UiPath.System.Activities": "[24.10.5]",
+    "UiPath.System.Activities.Runtime": "[24.10.5]",
+    "UiPath.UIAutomation.Activities.Runtime": "[24.10.3]"
+  },
+  "webServices": [],
+  "entitiesStores": [
+    {
+      "serviceDocument": ".entities/EntitiesStore.json",
+      "tenantName": "DefaultTenant",
+      "namespace": "EmployeeOnboard_Dispatcher",
+      "uniqueReference": "lpcwlABhkKqoBEL66hJoMZADLINU9IISxCwqXg5AxB8="
+    }
+  ],
+  "schemaVersion": "4.0",
+  "studioVersion": "23.10.3.0",
+  "projectVersion": "1.0.13",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": false,
+    "supportsPersistence": true,
+    "workflowSerialization": "DataContract",
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": true,
+    "pipType": "ChildSession"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "modernBehavior": false,
+    "saveToCloud": false
+  },
+  "arguments": {
+    "input": [
+      {
+        "name": "in_OrchestratorFolderFullPath",
+        "type": "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+        "required": false,
+        "hasDefault": true
+      },
+      {
+        "name": "in_OrchestratorAssetsRelativeEndPoint",
+        "type": "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+        "required": false,
+        "hasDefault": true
+      }
+    ],
+    "output": []
+  },
+  "expressionLanguage": "CSharp",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "badde883-d09e-4537-8c41-c96b1b8ed084",
+      "input": [
+        {
+          "name": "in_OrchestratorFolderFullPath",
+          "type": "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+          "required": false,
+          "hasDefault": true
+        },
+        {
+          "name": "in_OrchestratorAssetsRelativeEndPoint",
+          "type": "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+          "required": false,
+          "hasDefault": true
+        }
+      ],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Windows"
+}

@@ -1,0 +1,415 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="PerMailErrorNotification" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:rb="clr-namespace:RPAHUB.BeautyMailRender;assembly=RPAHUB.BeautyMailRender" xmlns:rba="clr-namespace:RPAHUB.BeautyMailRender.Activities;assembly=RPAHUB.BeautyMailRender.Activities" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_SystemException" Type="InArgument(s:Exception)" />
+    <x:Property Name="in_BusinessException" Type="InArgument(ui:BusinessRuleException)" />
+    <x:Property Name="out_SE" Type="OutArgument(s:Exception)" />
+    <x:Property Name="out_HTML" Type="OutArgument(x:String)" />
+    <x:Property Name="in_DicOfRequestInfo" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_MailMessage" Type="InArgument(snm:MailMessage)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>918,2506</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>RPAHUB.BeautyMailRender</x:String>
+      <x:String>System.Drawing</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>RPAHUB.BeautyMailRender</AssemblyReference>
+      <AssemblyReference>RPAHUB.BeautyMailRender.Activities</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="PerMailErrorNotification" sap:VirtualizedContainerService.HintSize="646,2441" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch - Actions" sap:VirtualizedContainerService.HintSize="584,2330" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <Sequence DisplayName="Actions" sap:VirtualizedContainerService.HintSize="546,2102" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="ui:Image" Name="loadedImage" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="&quot;Prepare mail body&quot;" sap:VirtualizedContainerService.HintSize="484,52" sap2010:WorkflowViewState.IdRef="LogMessage_4">
+            <ui:LogMessage.Message>
+              <InArgument x:TypeArguments="x:Object">
+                <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">"Prepare mail body"</CSharpValue>
+              </InArgument>
+            </ui:LogMessage.Message>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LogMessage>
+          <ui:LoadImage DisplayName="Load Image - Logo" FileName="Data\\Utils\\Images\\rayalogo1.png" sap:VirtualizedContainerService.HintSize="484,52" sap2010:WorkflowViewState.IdRef="LoadImage_1">
+            <ui:LoadImage.Image>
+              <OutArgument x:TypeArguments="ui:Image">
+                <CSharpReference x:TypeArguments="ui:Image" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">loadedImage</CSharpReference>
+              </OutArgument>
+            </ui:LoadImage.Image>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LoadImage>
+          <rba:BeautyMailRenderScope ContinueOnError="{x:Null}" HTMLRenderResult="{x:Null}" DisplayName="Beauty Mail Render Scope - Actions" sap:VirtualizedContainerService.HintSize="484,1715" sap2010:WorkflowViewState.IdRef="BeautyMailRenderScope_1">
+            <rba:BeautyMailRenderScope.Body>
+              <ActivityAction x:TypeArguments="rb:IObjectContainer">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="rb:IObjectContainer" Name="ScopeActivity" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Prepare" sap:VirtualizedContainerService.HintSize="450,1628" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <rba:AppendImage ContinueOnError="{x:Null}" Base64="True" DisplayName="Append Image - Logo" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="AppendImage_1" ImageAlign="center">
+                    <rba:AppendImage.Height>
+                      <InArgument x:TypeArguments="x:Int32">
+                        <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">loadedImage.Height</CSharpValue>
+                      </InArgument>
+                    </rba:AppendImage.Height>
+                    <rba:AppendImage.Image>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">loadedImage.Base64</CSharpValue>
+                      </InArgument>
+                    </rba:AppendImage.Image>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <rba:AppendImage.Width>
+                      <InArgument x:TypeArguments="x:Int32">
+                        <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">loadedImage.Width</CSharpValue>
+                      </InArgument>
+                    </rba:AppendImage.Width>
+                  </rba:AppendImage>
+                  <rba:AppendText ContinueOnError="{x:Null}" Bold="True" Code="False" DisplayName="Append Text - Hello" FontSize="3" sap:VirtualizedContainerService.HintSize="388,375" sap2010:WorkflowViewState.IdRef="AppendText_1" Italic="False" LeftPadding="0" LineThrough="False" RightPadding="0" Subscript="False" Superscript="False" TextAlign="center" Underline="False">
+                    <rba:AppendText.BackgroundColor>
+                      <InArgument x:TypeArguments="sd:Color">
+                        <CSharpValue x:TypeArguments="sd:Color" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">Color.White</CSharpValue>
+                      </InArgument>
+                    </rba:AppendText.BackgroundColor>
+                    <rba:AppendText.FontColor>
+                      <InArgument x:TypeArguments="sd:Color">
+                        <CSharpValue x:TypeArguments="sd:Color" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">Color.Black</CSharpValue>
+                      </InArgument>
+                    </rba:AppendText.FontColor>
+                    <rba:AppendText.Text>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_38">"Hello "+in_MailMessage.Sender.DisplayName +" ,"</CSharpValue>
+                      </InArgument>
+                    </rba:AppendText.Text>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </rba:AppendText>
+                  <rba:AppendText ContinueOnError="{x:Null}" Bold="True" Code="False" DisplayName="Append Text - Here is" FontSize="4" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="AppendText_2" Italic="False" LeftPadding="0" LineThrough="False" RightPadding="0" Subscript="False" Superscript="False" TextAlign="center" Underline="False">
+                    <rba:AppendText.BackgroundColor>
+                      <InArgument x:TypeArguments="sd:Color">
+                        <CSharpValue x:TypeArguments="sd:Color" sap2010:WorkflowViewState.IdRef="CSharpValue`1_35">Color.White</CSharpValue>
+                      </InArgument>
+                    </rba:AppendText.BackgroundColor>
+                    <rba:AppendText.FontColor>
+                      <InArgument x:TypeArguments="sd:Color">
+                        <CSharpValue x:TypeArguments="sd:Color" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">Color.Blue</CSharpValue>
+                      </InArgument>
+                    </rba:AppendText.FontColor>
+                    <rba:AppendText.Text>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">"Here is "+in_Config["RobotName"].ToString()</CSharpValue>
+                      </InArgument>
+                    </rba:AppendText.Text>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </rba:AppendText>
+                  <rba:AppendText ContinueOnError="{x:Null}" Bold="False" Code="False" DisplayName="Thank you for your email request. Please find the status details below:" FontSize="4" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="AppendText_3" Italic="False" LeftPadding="0" LineThrough="False" RightPadding="0" Subscript="False" Superscript="False" Text="- Thank you for your email request. Please note that an error has occurred, please find the status details below:" TextAlign="left" Underline="False">
+                    <rba:AppendText.BackgroundColor>
+                      <InArgument x:TypeArguments="sd:Color">
+                        <CSharpValue x:TypeArguments="sd:Color" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">Color.White</CSharpValue>
+                      </InArgument>
+                    </rba:AppendText.BackgroundColor>
+                    <rba:AppendText.FontColor>
+                      <InArgument x:TypeArguments="sd:Color">
+                        <CSharpValue x:TypeArguments="sd:Color" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">Color.Black</CSharpValue>
+                      </InArgument>
+                    </rba:AppendText.FontColor>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </rba:AppendText>
+                  <rba:AppendBulletList ContinueOnError="{x:Null}" Bold="False" BulletStyle="circle" Code="False" DisplayName="Append Bullet List - Info" FontSize="4" sap:VirtualizedContainerService.HintSize="388,328" sap2010:WorkflowViewState.IdRef="AppendBulletList_1" Italic="False" LeftPadding="0" LineThrough="False" RightPadding="0" TextAlign="left" Underline="False">
+                    <rba:AppendBulletList.BackgroundColor>
+                      <InArgument x:TypeArguments="sd:Color">
+                        <CSharpValue x:TypeArguments="sd:Color" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">Color.White</CSharpValue>
+                      </InArgument>
+                    </rba:AppendBulletList.BackgroundColor>
+                    <rba:AppendBulletList.FontColor>
+                      <InArgument x:TypeArguments="sd:Color">
+                        <CSharpValue x:TypeArguments="sd:Color" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">in_SystemException!=null ? Color.Red : Color.Orange</CSharpValue>
+                      </InArgument>
+                    </rba:AppendBulletList.FontColor>
+                    <rba:AppendBulletList.ListOfTexts>
+                      <InArgument x:TypeArguments="s:String[]">
+                        <CSharpValue x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_37" xml:space="preserve">(new List&lt;string&gt;()
+{
+	"Exception type: " + (in_SystemException!=null ? "System" : "Business"),
+	"Details: " + (in_SystemException!=null ? in_Config["SystemExceptionMessage"].ToString() : in_BusinessException.Message)
+}).ToArray()</CSharpValue>
+                      </InArgument>
+                    </rba:AppendBulletList.ListOfTexts>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </rba:AppendBulletList>
+                  <rba:AppendSeparationLine ContinueOnError="{x:Null}" DisplayName="Append Separation Line" sap:VirtualizedContainerService.HintSize="388,25" sap2010:WorkflowViewState.IdRef="AppendSeparationLine_1" />
+                  <rba:AppendText ContinueOnError="{x:Null}" Bold="True" Code="False" DisplayName="Append Text - Thanks" FontSize="3" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="AppendText_4" Italic="False" LeftPadding="0" LineThrough="False" RightPadding="0" Subscript="False" Superscript="False" Text="Thanks" TextAlign="center" Underline="False">
+                    <rba:AppendText.BackgroundColor>
+                      <InArgument x:TypeArguments="sd:Color">
+                        <CSharpValue x:TypeArguments="sd:Color" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27">Color.White</CSharpValue>
+                      </InArgument>
+                    </rba:AppendText.BackgroundColor>
+                    <rba:AppendText.FontColor>
+                      <InArgument x:TypeArguments="sd:Color">
+                        <CSharpValue x:TypeArguments="sd:Color" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26">Color.Black</CSharpValue>
+                      </InArgument>
+                    </rba:AppendText.FontColor>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </rba:AppendText>
+                  <rba:AppendText ContinueOnError="{x:Null}" Bold="True" Code="False" DisplayName="Append Text - Powered By" FontSize="0" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="AppendText_5" Italic="False" LeftPadding="0" LineThrough="False" RightPadding="0" Subscript="False" Superscript="False" Text="Powered By: Raya" TextAlign="left" Underline="False">
+                    <rba:AppendText.BackgroundColor>
+                      <InArgument x:TypeArguments="sd:Color">
+                        <CSharpValue x:TypeArguments="sd:Color" sap2010:WorkflowViewState.IdRef="CSharpValue`1_29">Color.White</CSharpValue>
+                      </InArgument>
+                    </rba:AppendText.BackgroundColor>
+                    <rba:AppendText.FontColor>
+                      <InArgument x:TypeArguments="sd:Color">
+                        <CSharpValue x:TypeArguments="sd:Color" sap2010:WorkflowViewState.IdRef="CSharpValue`1_28">Color.Blue</CSharpValue>
+                      </InArgument>
+                    </rba:AppendText.FontColor>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </rba:AppendText>
+                  <rba:AppendText ContinueOnError="{x:Null}" Bold="True" Code="False" DisplayName="Append Text - &quot;Service name: RPA - Employee Onboarding&quot;" FontSize="0" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="AppendText_6" Italic="False" LeftPadding="0" LineThrough="False" RightPadding="0" Subscript="False" Superscript="False" Text="Service name: RPA - Employee Onboarding" TextAlign="left" Underline="False">
+                    <rba:AppendText.BackgroundColor>
+                      <InArgument x:TypeArguments="sd:Color">
+                        <CSharpValue x:TypeArguments="sd:Color" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31">Color.White</CSharpValue>
+                      </InArgument>
+                    </rba:AppendText.BackgroundColor>
+                    <rba:AppendText.FontColor>
+                      <InArgument x:TypeArguments="sd:Color">
+                        <CSharpValue x:TypeArguments="sd:Color" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">Color.Green</CSharpValue>
+                      </InArgument>
+                    </rba:AppendText.FontColor>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </rba:AppendText>
+                  <rba:AppendText ContinueOnError="{x:Null}" Bold="True" Code="False" DisplayName="Do not reply it is automated mail" FontSize="0" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="AppendText_7" Italic="False" LeftPadding="0" LineThrough="False" RightPadding="0" Subscript="False" Superscript="False" Text="Do not reply it is automated mail" TextAlign="left" Underline="False">
+                    <rba:AppendText.BackgroundColor>
+                      <InArgument x:TypeArguments="sd:Color">
+                        <CSharpValue x:TypeArguments="sd:Color" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">Color.White</CSharpValue>
+                      </InArgument>
+                    </rba:AppendText.BackgroundColor>
+                    <rba:AppendText.FontColor>
+                      <InArgument x:TypeArguments="sd:Color">
+                        <CSharpValue x:TypeArguments="sd:Color" sap2010:WorkflowViewState.IdRef="CSharpValue`1_32">Color.Red</CSharpValue>
+                      </InArgument>
+                    </rba:AppendText.FontColor>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </rba:AppendText>
+                  <rba:GetHTMLRender ContinueOnError="{x:Null}" DisplayName="Get HTML Render" sap:VirtualizedContainerService.HintSize="388,25" sap2010:WorkflowViewState.IdRef="GetHTMLRender_1">
+                    <rba:GetHTMLRender.Result>
+                      <OutArgument x:TypeArguments="x:String">
+                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">out_HTML</CSharpReference>
+                      </OutArgument>
+                    </rba:GetHTMLRender.Result>
+                  </rba:GetHTMLRender>
+                </Sequence>
+              </ActivityAction>
+            </rba:BeautyMailRenderScope.Body>
+          </rba:BeautyMailRenderScope>
+          <ui:LogMessage DisplayName="&quot;Mail body prepared successfully ✔&quot;" sap:VirtualizedContainerService.HintSize="484,52" sap2010:WorkflowViewState.IdRef="LogMessage_3">
+            <ui:LogMessage.Message>
+              <InArgument x:TypeArguments="x:Object">
+                <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">"Mail body prepared successfully ✔"</CSharpValue>
+              </InArgument>
+            </ui:LogMessage.Message>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LogMessage>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="550,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="SE Handling" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message - SE" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error">
+                <ui:LogMessage.Message>
+                  <InArgument x:TypeArguments="x:Object">
+                    <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">exception.Message</CSharpValue>
+                  </InArgument>
+                </ui:LogMessage.Message>
+              </ui:LogMessage>
+              <Assign sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_3">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="s:Exception">
+                    <CSharpReference x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">out_SE</CSharpReference>
+                  </OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="s:Exception">
+                    <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7" xml:space="preserve">new Exception(in_Config["MessageTemplateSystemException"].ToString()
+.Replace("TOKEN1","prepare notification mail"))</CSharpValue>
+                  </InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>

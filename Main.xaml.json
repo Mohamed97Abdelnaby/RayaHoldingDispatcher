@@ -1,0 +1,33 @@
+{
+  "DisplayName": "Main",
+  "Tooltip": null,
+  "HelpLink": null,
+  "Color": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "in_OrchestratorFolderFullPath",
+      "DisplayName": "in_OrchestratorFolderFullPath",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": "AhmedShawkey/RayaHolding/EmployeeOnboard/Dispatcher",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "in_OrchestratorAssetsRelativeEndPoint",
+      "DisplayName": "in_OrchestratorAssetsRelativeEndPoint",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": "/odata/Assets/UiPath.Server.Configuration.OData.GetFiltered",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    }
+  ]
+}

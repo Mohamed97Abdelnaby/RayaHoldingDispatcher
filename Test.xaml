@@ -1,0 +1,138 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Test" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="786.6666666666666,612" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:isactr="http://schemas.uipath.com/workflow/integration-service-activities/isactr" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Models.FilterBuilder</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Models</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Activities</x:String>
+      <x:String>UiPath.Platform.Activities</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Reflection</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.IntegrationService.Activities.Runtime</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Test" sap:VirtualizedContainerService.HintSize="416,547.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="EnglishID" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <isactr:ConnectorActivity Configuration="H4sIAAAAAAAACqVXy3LbNhT9FQxX6Yykyo9MZ7yzZMdRY8eqZSWLThYQeUXCogAGDzuSJ5/TL+mP9YCiFAJ06s504TFxcJ/nXgBXz8k7QWVmxkpaLiTp5Ow5mRHXacEXJe02k7M/v/SSiaycPQDPyUe+puQsWauMyvq7l1wIU5V80+zc+B0mmy0yqRaVFUpi674glhPccSseiZ1PWG2GKc0mF8wq5gwN2H0hDOMpRITdsIyW3JXW+G0L/Z3Gk7BFvSxEXpCx7KvjpRdXC0P6kTKmnEXgPVaoJ3ok3WOcZWK5JE3SNkZSLtmCmKGSUguVBTdeUcKnEfpgA8HIjFl4ETIfsBl8pwU+d1ZMbabgyEesK4RtvAUf2k57ABbuN5VnxlgNNaxnSttbnXnajzxHdYafeOm8VF7Z/qnqHw+PT/vDt/2jEyhcSrdus+9lTt72rdML1R8eHb+FTFs/3PveCxRj4z93/P1LXUGRo3jPybXi2WjTRJucWe2ol0yVEU11p1qsud7AXXJHX51ncC9V98+1Snkj+ocjCKK5zA3ZQmVTrhGf9YR4hVbAwrffPX2znT7bg2GHAfSdgrJazaUpOQr7SgmOW0n+h9hHKvM5HiIsucwdz7sH4bq1EQQ5qygVyw3ba3YCBvBKzCetntjX73ypxYrDRh3dAV0XXIs0xDRfxJAxiNpQCG5JL7h44FIE+MiVOYxyGaIkcxzCEFNGxnJjbnkZY1tKiwD5jKMVIhcII4KuSK8jS1eaaBUglzIvY8VZ1TV2aazqBDvi5is+2tCUtInF3gnZsfcOV02U1ER3MgBjaWztyj3gQNiQyve00PQUQkJmodBYK+hF5t47+UK5zvWaOulOUJoOJjMlcUAi+HcODuOOuSKl81jyA9/yVZj2h2KNNg6FpOQZDzGlKbbldAYO2Rt8oPQP4pdwe6PzzTaArrkK13g6HKofGb7m9jHGbtCnOTebCEwJhLwku8HfOkSVzFWH0Rtf3UJ09aNThgpF/H6kKj5iFw7PUSik9BP5KrA3I7Va//1XGZJ0m4mQ56mTD7gRQgxhR7065aawIZlTXEkudwgTvjTfishVe3/3zSOJO4UyxgTdOdPpt1mpHvmqA3V7eAaLEUfn5aLrZIbLrYM9IYcIId9wsVQhIhf3fC3KEKESqYdQwSMtp1ex9fkmL1x4OOYrjTEtDnaus9D8fLuI7r5PgqwfxaI2GmN+qbHXH/hL6SfCOaaqW4xRWmT0/57+3fMJv7f1eNSdLH88gy8/+61X8sUJoAhfUsgM2OcCcx8zrqrQg5T1WvMZRsmy/PH8CgwhtaKQzcDJq0qrCtenhYXakZ9XeVlhVCb7+jvtCcHsmJwteWlAyB2ZSkmQ3xC0X49d7fhnvO3o2s1M6IW9Vi3WTE1fQP9ciqUAdQgJ0z0GUitQvoPziTSWy5QOAxeoR1v4F632cjQYDoZwgh8GEkOx0h9oA9gJGCr6zT8udLaC0Hkzozf57xNAaRcPUI7riY331la7ia++G8AKQh7ztCCkqlauqhvUx3TAR1o9ofkmltYN3jQbImt+okx5usIY1c7itzCLJpS5mCJ+dkUSPz2a6AXctSTbRk5OB6eHbH7Shf+W7W1V/9KprY3xkr1Awe3sHpiPCqtf28qH6fEsIYn1Df82xXImtoCOh0NY4mYEqys03biAtOetKbM/OaNSpauaoe//AIGwMB7vDQAA" ConnectionId="afeb1d3b-fcf1-4742-bd6e-efcd4f2f8a84" DisplayName="Translate - ID" sap:VirtualizedContainerService.HintSize="354,292" sap2010:WorkflowViewState.IdRef="ConnectorActivity_1" UiPathActivityTypeId="44a6e8db-407e-373a-b4eb-84997a6c83fd">
+      <isactr:ConnectorActivity.FieldObjects>
+        <isactr:FieldObject Name="modelName" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:String">gpt-4o-2024-05-13</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="inputText" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:String">
+              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1" xml:space="preserve">/*"Translate Arabic Name: " + DataSet.Tables[0].Rows[0][0].ToString() +" "+ DataSet.Tables[0].Rows[0][1].ToString() +
+", and Arabic Address: " + DataSet.Tables[0].Rows[0][3].ToString() +" "+ DataSet.Tables[0].Rows[0][4].ToString()+
+", and Arabic Number: " + DataSet.Tables[0].Rows[0][2].ToString().Replace(" ",string.Empty)+
+", put the name first then address separated by ;"*/
+
+"احمد شوقي"</CSharpValue>
+            </InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="language" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <InArgument x:TypeArguments="x:String">English</InArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+        <isactr:FieldObject Name="out_translatedText" Type="FieldArgument">
+          <isactr:FieldObject.Value>
+            <OutArgument x:TypeArguments="x:String">
+              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">EnglishID</CSharpReference>
+            </OutArgument>
+          </isactr:FieldObject.Value>
+        </isactr:FieldObject>
+      </isactr:ConnectorActivity.FieldObjects>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </isactr:ConnectorActivity>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_1">
+      <ui:LogMessage.Message>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">EnglishID</CSharpValue>
+        </InArgument>
+      </ui:LogMessage.Message>
+    </ui:LogMessage>
+  </Sequence>
+</Activity>
